@@ -1,0 +1,133 @@
+/* =========================================================
+   estilo.css — Personalización de Bootstrap 5
+   Proyecto: Sazón Chiapaneco (Práctica 6)
+   IMPORTANTE: este archivo se vincula DESPUÉS del CDN de
+   Bootstrap para que la cascada de CSS le dé prioridad.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   0. Variables propias (paleta del negocio de comida)
+   --------------------------------------------------------- */
+:root {
+  --sazon-rojo: #C0392B;         /* color primario del negocio */
+  --sazon-rojo-oscuro: #922B21;
+  --sazon-rojo-hover: #7B241C;
+  --sazon-crema: #FFF8F0;
+  --sazon-carbon: #2C2C2C;
+}
+
+/* ---------------------------------------------------------
+   1. SOBREESCRITURA 1: color del botón primario
+   Bootstrap lo define en azul (#0d6efd); aquí lo cambiamos
+   al rojo de la marca.
+   --------------------------------------------------------- */
+.btn-primary {
+  background-color: var(--sazon-rojo);
+  border-color: var(--sazon-rojo-oscuro);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--sazon-rojo-hover);
+  border-color: var(--sazon-rojo-hover);
+}
+
+/* Botón outline primario (usado en las cards) */
+.btn-outline-primary {
+  color: var(--sazon-rojo);
+  border-color: var(--sazon-rojo);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--sazon-rojo);
+  border-color: var(--sazon-rojo);
+  color: #FFFFFF;
+}
+
+/* ---------------------------------------------------------
+   2. SOBREESCRITURA 2: navbar personalizada
+   Se agrega un borde inferior de 3 px y se ajusta el color
+   del enlace activo. Se usa !important porque Bootstrap
+   define .navbar-dark .navbar-nav .nav-link.active con
+   mayor especificidad.
+   --------------------------------------------------------- */
+.navbar {
+  border-bottom: 3px solid var(--sazon-rojo);
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  letter-spacing: .3px;
+}
+
+.navbar .nav-link.active {
+  color: #F5B7B1 !important;
+  font-weight: 600;
+}
+
+.navbar .nav-link:hover {
+  color: #F5B7B1;
+}
+
+/* ---------------------------------------------------------
+   3. SOBREESCRITURA 3: sección hero con fondo propio
+   --------------------------------------------------------- */
+.seccion-hero {
+  background: linear-gradient(135deg, #7B241C 0%, #2C2C2C 100%);
+  color: #FFFFFF;
+}
+
+.seccion-hero h1,
+.seccion-hero p {
+  color: #FFFFFF;
+}
+
+.seccion-hero img {
+  border: 6px solid rgba(255, 255, 255, .25);
+}
+
+/* ---------------------------------------------------------
+   4. SOBREESCRITURA 4: cards con efecto hover
+   --------------------------------------------------------- */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+
+/* Todas las imágenes de las cards con la misma altura */
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* ---------------------------------------------------------
+   5. Detalles propios de la tabla del menú
+   --------------------------------------------------------- */
+.tabla-menu {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabla-menu tbody tr:hover {
+  background-color: #FDEDEC; /* rojo muy claro al pasar el cursor */
+}
+
+/* ---------------------------------------------------------
+   6. Detalles generales del sitio
+   --------------------------------------------------------- */
+body {
+  background-color: var(--sazon-crema);
+}
+
+footer {
+  border-top: 3px solid var(--sazon-rojo);
+}
